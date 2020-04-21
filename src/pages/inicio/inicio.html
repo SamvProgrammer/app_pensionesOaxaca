@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      Sobres de pago
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-grid class="cabeceramenu">
+    <ion-row style="height: 100%;">
+      <ion-col>
+        <label style=" color: #ffffff;
+          font-size: larger;
+          /* font-family: -webkit-body; */
+          /* font-stretch: unset; */
+          font-weight: lighter;
+          font: icon;
+          font-weight: bold;
+          position: absolute;
+    bottom: 20px;">Seleccionar</label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h3 style="text-align: center;
+  margin-top: -25px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background: #f3f3f3;
+height: 30px;" ></h3>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let item of arreglo" col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1>
+        <div class="divs" (click)="abrir(item)">
+          <img src="../../assets/icon/pago.png" alt="">
+          <h5 style="color:#00538a">{{item.nombre}}</h5>
+          <p class="verde">Consultar</p>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

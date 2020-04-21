@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-buttons end>
+      <button (click)="salir()" ion-button icon-end>
+        Salir
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      General
+    </ion-title>
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="fondo">
+  <ion-refresher (ionRefresh)="actualizando($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-grid class="cabeceramenu">
+    <ion-row style="height: 100%;">
+      <ion-col>
+        <label style=" color: #ffffff;
+          font-size: larger;
+          /* font-family: -webkit-body; */
+          /* font-stretch: unset; */
+          font-weight: lighter;
+          font: icon;
+          font-weight: bold;
+          position: absolute;
+    bottom: 20px;">Datos personales</label>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <h3 style="text-align: center;
+  margin-top: -25px;
+  border-top-left-radius: 60px;
+  border-top-right-radius: 60px;
+  background: #f3f3f3;
+height: 30px;" ></h3>
+
+
+</ion-content>
