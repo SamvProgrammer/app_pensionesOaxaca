@@ -23,8 +23,6 @@ export class MyApp {
 
 
     storage.get("usuario").then(dato =>{
-      console.log("Esto es del storage");
-      console.log(dato);
       if(dato != undefined || dato != null){
           this.usuarioPrd.setUsuario(dato);
       }

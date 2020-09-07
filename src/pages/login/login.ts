@@ -42,14 +42,14 @@ export class LoginPage {
       ]});
       alerta.present();
     }else{
-      this.usuarioElement.value = "JUB7";
+      this.usuarioElement.value = "2e4779e14d58731845749aa2";
     }
   }
 
   public ingresar(cadena){
 
     let obj = {
-      verificacion:cadena.value
+      code:cadena.value
     };
 
     let load = this.loadCtrl.create({content:"Ingresando al sistema"});

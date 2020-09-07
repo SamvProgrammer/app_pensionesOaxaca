@@ -36,12 +36,23 @@
   background: #f3f3f3;
 height: 30px;" ></h3>
 
+<ion-list>
+  <ion-item>
+    <ion-label>Seleccionar año</ion-label>
+    <ion-select [(ngModel)]="anioseleccinado" #C (ionChange)="onChange(C.value)">
+      <ion-option *ngFor="let item of anioslista" [value]="'20'+item.anios" >20{{item.anios}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+</ion-list>
   <ion-grid>
     <ion-row>
       <ion-col *ngFor="let item of arreglo" col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1>
         <div class="divs" (click)="abrir(item)">
           <img src="../../assets/icon/correo.png" alt="">
-          <h5 style="color:#00538a">{{item.archivo}}</h5>
+          <h6 style="color:#00538a">{{anioseleccinado}}</h6>
+          <h5 style="color:#00538a">{{item.mesnombre}}</h5>
           <p class="verde">Consultar</p>
         </div>
       </ion-col>

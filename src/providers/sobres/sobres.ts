@@ -20,24 +20,24 @@ export class SobresProvider {
     this.direccion = direcciones.empleados;
   }
 
-  public getSobres(numjpp,anio):Observable<any>{
+  public getSobres(code,anio):Observable<any>{
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
-    let url = `${this.direccion}/${numjpp}/sobres?anio=${anio}`;
+    let url = `${this.direccion}/${code}/sobres?anio=${anio}`;
     console.log(url);
      return this.http.get(url,httpOptions);
   }
 
-  public getdesglosesobre(numjpp,aniomes,tipo_nomina){
+  public getdesglosesobre(code,aniomes,tipo_nomina){
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
-    let url = `${this.direccion}/${numjpp}/sobres/${aniomes}?tiponomina=${tipo_nomina}`;
+    let url = `${this.direccion}/${code}/sobres/${aniomes}?tiponomina=${tipo_nomina}`;
      return this.http.get(url,httpOptions);
   }
 

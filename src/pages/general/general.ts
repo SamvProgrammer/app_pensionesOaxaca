@@ -17,9 +17,21 @@ import { UsuarioProvider } from '../../providers/usuario/usuario';
 export class GeneralPage {
 
   private usuario:any;
+  private numerojubilado:string = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private loadCtrl:LoadingController,private usuarioPrd:UsuarioProvider) {
      this.usuario =  this.usuarioPrd.getUsuario();
+     switch(this.usuario.jpp){
+        case "JUB":
+          this.numerojubilado = "JUBILADO" + " "+this.usuario.num;
+          break;
+          case "PTA":
+            this.numerojubilado = "PENSIONISTA" + " "+this.usuario.num;
+          break;
+          case "PDO":
+            this.numerojubilado = "PENSIONADO" + " "+this.usuario.num;
+          break;
+     }
   }
 
   ionViewDidLoad() {
