@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 
 /**
  * Generated class for the GeneralPage page.
@@ -15,7 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class GeneralPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  private usuario:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,private loadCtrl:LoadingController,private usuarioPrd:UsuarioProvider) {
+     this.usuario =  this.usuarioPrd.getUsuario();
   }
 
   ionViewDidLoad() {

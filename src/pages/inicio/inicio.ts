@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { SobresDesglosePage } from '../sobres-desglose/sobres-desglose';
+import { SobresProvider } from '../../providers/sobres/sobres';
+import { UsuarioProvider } from '../../providers/usuario/usuario';
 
-/**
- * Generated class for the InicioPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+
 
 
 @Component({
@@ -16,32 +13,41 @@ import { SobresDesglosePage } from '../sobres-desglose/sobres-desglose';
 })
 export class InicioPage {
 
-  arreglo=[
-    {nombre:'Abril'},
-    {nombre:'Marzo'},
-    {nombre:'Febrero'},
-    {nombre:'Enero'}];
+  public arreglo:any=[];
+  private numjpp:string = "";
+  private anio:string = "";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private sobresPrd:SobresProvider
+    ,private loadCtrl:LoadingController,private usuarios:UsuarioProvider) {
+
+    this.numjpp = this.usuarios.getUsuario().verificar;
+    this.anio = "2020";
+    let cargando = this.loadCtrl.create({content:"Recopilando información"});
+    cargando.present();
+    this.sobresPrd.getSobres(this.numjpp,this.anio).subscribe(datos =>{
+      this.arreglo = datos;
+      cargando.dismiss();
+    });
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InicioPage');
+    
   }
 
 
-  doInfinite(): Promise<any> {
-    console.log("Se ejecuta");
-    return new Promise((resolve) => {
-      //this.offset = this.offset + 10;
-    setTimeout(() => {
-      resolve();
-    }, 1000);
-    })
-  }
 
 
-  public abrir(obj){
+
+  public abrir(item){
+
+       console.log(item);
+       let obj = {
+        archivo: item.archivo,
+        numjpp:this.numjpp,
+        anio:this.anio
+       }
+
+
       this.navCtrl.push(SobresDesglosePage,{obj:obj});
   }
 

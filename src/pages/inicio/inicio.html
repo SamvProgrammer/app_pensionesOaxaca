@@ -40,15 +40,13 @@ height: 30px;" ></h3>
     <ion-row>
       <ion-col *ngFor="let item of arreglo" col-6 col-sm-4 col-md-3 col-lg-2 col-xl-1>
         <div class="divs" (click)="abrir(item)">
-          <img src="../../assets/icon/pago.png" alt="">
-          <h5 style="color:#00538a">{{item.nombre}}</h5>
+          <img src="../../assets/icon/correo.png" alt="">
+          <h5 style="color:#00538a">{{item.archivo}}</h5>
           <p class="verde">Consultar</p>
         </div>
       </ion-col>
     </ion-row>
   </ion-grid>
 
-  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
-    <ion-infinite-scroll-content></ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+ 
 </ion-content>

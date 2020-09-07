@@ -1,0 +1,45 @@
+<ion-content class="fondo">
+  <img src="../../assets/imgs/logo.png" (click)="verEmpresas(1)" class="logo fadeIn animacion">
+  <div id="container" class="fadeIn animacion">
+    
+
+
+
+    <ion-list>
+
+
+
+      <ion-item id="rounded" style="background-color: #cccccc;" (click)="seleccionarUsuario()">
+        <ion-avatar item-start>
+          <img src="../../assets/icon/usuario.png">
+        </ion-avatar>
+
+        <ion-input  disabled #usuario type="text" value="" placeholder="Seleccionar usuario"></ion-input>
+      </ion-item>
+
+     
+      <!-- 
+
+<ion-item id="rounded">
+        <ion-label>Seleccionar Sucursal </ion-label>
+        <ion-select [(ngModel)]="sucursal">
+          <ion-option *ngFor="let i of arreglo" value="{{i.id}}">{{i.nombre}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+        -->
+
+      <ion-item id="rounded" style="background: #f3f3f3;">
+        <button style="height: 50px;
+        background: #ff4a4a;
+        border-radius: 30px;" class="botones" ion-button icon-end (click)="ingresar(usuario);">
+          Ingresar
+          <ion-icon name="arrow-dropright"></ion-icon>
+        </button>
+      </ion-item>
+
+
+    </ion-list>
+  </div>
+  
+</ion-content>

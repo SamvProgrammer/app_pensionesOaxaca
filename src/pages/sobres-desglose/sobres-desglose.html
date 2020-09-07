@@ -14,9 +14,7 @@
 </ion-header>
 
 <ion-content class="fondo">
-  <ion-refresher (ionRefresh)="actualizando($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
+ 
   <ion-grid class="cabeceramenu">
     <ion-row style="height: 100%;">
       <ion-col>
@@ -42,10 +40,10 @@ height: 30px;"></h3>
 
   <ion-card *ngFor="let item of percepciones" class="entrada">
     <ion-card-header>
-      <label class="letra">Percepcion</label>
+      <label class="letra">{{item.descri}}</label>
       <h4> Movimiento :
         <strong style="color: #22818b;">
-          <label>{{item.nombre}}</label>
+          <label>Percepción</label>
         </strong>
       </h4>
       <h4> Cantidad :
@@ -61,14 +59,14 @@ height: 30px;"></h3>
   color: #3e8398;
   font-weight: bold;    font-size: x-large;">
      Total:
-    {{1000|currency}} 
+    {{totalpercepcion|currency}} 
   </ion-item>
   <ion-card *ngFor="let item of deducciones" class="salida">
     <ion-card-content style="text-align: end;" *ngIf="item.dnombre != ''">
-      <label class="letra">Deducción</label>
+      <label class="letra">{{item.descri}}</label>
       <h4> Movimiento :
         <strong style="color: #22818b;">
-          <label>{{item.nombre}}</label>
+          <label>Deducción</label>
         </strong>
       </h4>
       <h4> Cantidad :
@@ -83,9 +81,17 @@ height: 30px;"></h3>
   background: #f1f1f1;
   color: #3e8398;
   font-weight: bold;    font-size: x-large;">
-      Total: {{500|currency}}
+      Total: {{totaldeduccion|currency}}
   </ion-item>
 
+
+  <ion-item style="text-align: center">
+    <p style="    font-size: x-large;
+    font-weight: 500;"> Total:</p> 
+<p style="    color: red;
+font-weight: 500;
+font-size: x-large;">{{cantidad_total | currency}} </p>
+  </ion-item>
 </ion-content>
 
 <ion-footer>
