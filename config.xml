@@ -113,5 +113,6 @@
         <icon src="resources/windows/icon/StoreLogo.png" target="StoreLogo" />
         <splash src="resources/windows/splash/Splash.png" target="SplashScreen" />
     </platform>
-    <engine name="android" spec="^7.1.4" />
+    <plugin name="onesignal-cordova-plugin" spec="^2.11.1" />
+    <engine name="android" spec="7.1.4" />
 </widget>

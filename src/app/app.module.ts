@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InAppBrowser } from '@ionic-native/in-app-browser';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { IonicStorageModule } from '@ionic/storage';
+import { OneSignal } from '@ionic-native/onesignal';
 
 
 import { MyApp } from './app.component';
@@ -17,6 +18,7 @@ import { SobresDesglosePage } from '../pages/sobres-desglose/sobres-desglose';
 import { LoginPage } from '../pages/login/login';
 import { SobresProvider } from '../providers/sobres/sobres';
 import { UsuarioProvider } from '../providers/usuario/usuario';
+import { PushnotificacionProvider } from '../providers/pushnotificacion/pushnotificacion';
 
 
 
@@ -51,7 +53,9 @@ import { UsuarioProvider } from '../providers/usuario/usuario';
     SobresProvider,
     InAppBrowser,
     BarcodeScanner,
-    UsuarioProvider
+    UsuarioProvider,
+    PushnotificacionProvider,
+    OneSignal
   ]
 })
 export class AppModule {}
